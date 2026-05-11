@@ -7,11 +7,12 @@
 -Mensaje de error: [data-test="error"] - .error-message-container h3 (Subtitulo con el mensaje de error)
 
 ##Inventory Page
-(accedo al producto)
-(accedo al titulo)
-(accedo al precio)
-(boton de agregar al carrito)
-(acceder al carrito)
+-Link y nombre del producto especifico (mochila): [data-test="inventory-item-name"] - #item_4_title_link div ( para acceder al producto)
+-Titulo Products: [data-test="title"] - .header_secondary_container span   (accedo al titulo products)
+-Container inventario: #inventory_container
+-Texto precio: [data-test="inventory-item-price"] - .pricebar div (accedo al precio)
+-Boton agregar al carrito: #add-to-cart-sauce-labs-backpack ( id del boton de agregar al carrito)
+-(acceder al carrito)
 (acceder a los filtros)
 (boton para volver al inventario (desde el carrito))
 (boton para el checkout)
