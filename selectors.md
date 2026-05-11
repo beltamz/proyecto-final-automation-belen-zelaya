@@ -12,8 +12,10 @@
 -Container inventario: #inventory_container
 -Texto precio: [data-test="inventory-item-price"] - .pricebar div (accedo al precio)
 -Boton agregar al carrito: #add-to-cart-sauce-labs-backpack ( id del boton de agregar al carrito)
+-Boton para ver el menu: #react-burger-menu-btn
+-Menu flotante: .bm-menu-wrap
 -(acceder al carrito)
-(acceder a los filtros)
+-Boton para los filtros: .product-sort-container
 (boton para volver al inventario (desde el carrito))
 (boton para el checkout)
 (si tenemos un producto en el carrito, boton para borrar)(como visualizar sus partes tambien por ej nombre)

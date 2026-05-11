@@ -1,7 +1,7 @@
-from selenium import webdriver
+"""from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from utils.InventoryPage import titulo_inventario, productos_mostrados, nombre_producto_especifico, precio_producto_especifico
+from selenium.webdriver.common.keys import Keys"""
+from utils.InventoryPage import titulo_inventario, productos_mostrados, nombre_producto_especifico, precio_producto_especifico, mostrar_menu, filtro_esta
 
 def test_inventory_title(login_in_driver):
     try:
@@ -29,4 +29,20 @@ def test_specific_product_price(login_in_driver):
         assert precio == "$29.99"
     except Exception as e:
         print(f"Error en precio_producto_especifico: {e}")
+        raise
+    
+def test_menu_is_displayed(login_in_driver):
+    try:
+        menuVisible = mostrar_menu(login_in_driver)
+        assert menuVisible == True
+    except Exception as e:
+        print(f"Error en mostrar menu: {e}")
+        raise
+
+def test_filtro_esta(login_in_driver):
+    try:
+        filtro= filtro_esta(login_in_driver)
+        assert filtro==True
+    except Exception as e:
+        print(f"Error en elegir filtro: {e}")
         raise
