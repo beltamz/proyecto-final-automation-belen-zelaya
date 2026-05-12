@@ -6,7 +6,7 @@ from selenium.webdriver.common.keys import Keys
 def login(driver):
     driver.get("https://www.saucedemo.com/")
 
-    #Ingresamos al usuario
+    #Ingresamos el usuario
     usuario = driver.find_element(By.ID, "user-name")
     usuario.send_keys("standard_user")
 

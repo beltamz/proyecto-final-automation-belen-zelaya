@@ -19,11 +19,13 @@ def login_in_driver(driver):
     login(driver)
     return driver
 
+#Funcion global para poder acceder a la pagina ya con la sesion iniciada y con un producto en el carrito(desde /inventory.html)
 @pytest.fixture
 def product_added_in_driver(login_in_driver):
     agregar_mochila_al_carrito(login_in_driver)
     return login_in_driver
 
+#Funcion global para poder acceder a la pagina ya con la sesion iniciada y con un producto en el carrito desde /cart.html
 @pytest.fixture
 def cart_in_driver(product_added_in_driver):
     driver=product_added_in_driver

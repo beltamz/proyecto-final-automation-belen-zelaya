@@ -17,9 +17,4 @@
 -Acceder al carrito: [data-test="shopping-cart-link"]
 -Boton para los filtros: .product_sort_container
 -ver cant carrito: [data-test="shopping-cart-badge"]
-(boton para volver al inventario (desde el carrito))
-(boton para el checkout)
-(si tenemos un producto en el carrito, boton para borrar)
 -Ver producto en el carrito: [data-test="inventory-item-name"]
-
-
