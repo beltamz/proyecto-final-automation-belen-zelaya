@@ -2,7 +2,6 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-#! Todo esto lo hice yo, chequear que funcione
 
 def titulo_inventario(login_in_driver):
     driver= login_in_driver
@@ -63,3 +62,10 @@ def ver_numero_en_carrito(product_added_in_driver):
     cantEnCarrito= wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"[data-test='shopping-cart-badge']" )))
 
     return cantEnCarrito.text
+
+
+def ir_a_pagina_del_carrito(product_added_in_driver):
+    driver= product_added_in_driver
+    btnCarrito= driver.find_element(By.CSS_SELECTOR, "[data-test='shopping-cart-link']")
+    btnCarrito.click()
+    return driver

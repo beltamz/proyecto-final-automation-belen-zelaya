@@ -1,7 +1,7 @@
 """from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys"""
-from utils.InventoryPage import titulo_inventario, productos_mostrados, nombre_producto_especifico, precio_producto_especifico, mostrar_menu, filtro_esta, agregar_mochila_al_carrito, ver_numero_en_carrito
+from utils.InventoryPage import titulo_inventario, productos_mostrados, nombre_producto_especifico, precio_producto_especifico, mostrar_menu, filtro_esta, agregar_mochila_al_carrito, ver_numero_en_carrito, ir_a_pagina_del_carrito
 
 def test_inventory_title(login_in_driver):
     try:
@@ -59,3 +59,7 @@ def test_see_number_in_cart(product_added_in_driver):
     except Exception as e:
         print(f"Error en ver_numero_en_carrito: {e}")
         raise
+
+def test_go_to_cart_page(product_added_in_driver):
+    driver=ir_a_pagina_del_carrito(product_added_in_driver)
+    assert "/cart.html" in driver.current_url, "No se redirigio al carrito"
