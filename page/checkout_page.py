@@ -17,13 +17,11 @@ class CheckoutPage:
         self.mensaje_exito = (By.CLASS_NAME, "complete-header")
 
     def completar_datos_envio(self, nombre, apellido, codigo_postal):
-        """Llena el formulario en checkout-step-one y avanza"""
         self.driver.find_element(*self.input_nombre).send_keys(nombre)
         self.driver.find_element(*self.input_apellido).send_keys(apellido)
         self.driver.find_element(*self.input_postal).send_keys(codigo_postal)
         self.driver.find_element(*self.btn_continue).click()
 
     def finalizar_compra(self):
-        """Hace clic en Finish en checkout-step-two y devuelve el texto de éxito"""
         self.driver.find_element(*self.btn_finish).click()
         return self.driver.find_element(*self.mensaje_exito).text
