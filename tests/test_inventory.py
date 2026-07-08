@@ -39,3 +39,14 @@ def test_add_to_cart_btn_is_clickable(inventory_page_obj):
 def test_go_to_cart_page(inventory_page_obj):
     inventory_page_obj.ir_al_carrito()
     assert "/cart.html" in inventory_page_obj.driver.current_url, "No se redirigio al carrito"
+
+#Prueba el filtro para la busqueda del producto por precio de menor a mayor
+def test_filter_price_low_to_high(inventory_page_obj):
+    inventory_page_obj.aplicar_filtro_por_valor("lohi")
+    #Llamamos a la lista con precios
+    precios_obtenidos = inventory_page_obj.obtener_precios_lista()
+    #Copiamos la lista y la ordenamos de menor a mayor
+    precios_ordenados_esperados = sorted(precios_obtenidos)
+    
+    #Validamos que la lista con precios que obtuvimos al aplicar el filtro este ordenado
+    assert precios_obtenidos == precios_ordenados_esperados, "El filtro de menor a mayor precio no funciona"

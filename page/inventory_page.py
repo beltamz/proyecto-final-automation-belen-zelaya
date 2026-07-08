@@ -1,4 +1,5 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import Select
 
 class InventoryPage: 
     def __init__(self, driver):
@@ -13,6 +14,8 @@ class InventoryPage:
         self.ir_a_pagina_del_carrito = (By.CSS_SELECTOR, "[data-test='shopping-cart-link']")
         self.nombres_productos = (By.CLASS_NAME, "inventory_item_name")
         self.add_to_cart_buttons = (By.CLASS_NAME, "btn_inventory")
+        self.filtro_desplegable = (By.CLASS_NAME, "product_sort_container")
+        self.precios_productos = (By.CLASS_NAME, "inventory_item_price")
 
     def obtener_titulo(self):
         return self.driver.find_element(*self.titulo_inventario).text
@@ -40,3 +43,15 @@ class InventoryPage:
             if nombre == nombre_producto_json:
                 producto.find_element(*self.add_to_cart_buttons).click()
                 break
+
+    #Aplicamos el filtro de precio de menor a mayor(que lo paso por parametro en el test)--> en este caso "lohi"
+    def aplicar_filtro_por_valor(self, valor):
+        dropdown_elemento = self.driver.find_element(*self.filtro_desplegable)
+        select = Select(dropdown_elemento)
+        select.select_by_value(valor) 
+
+    #Guardo los precios en el orden en que aparecen despues de aplicar el filtro
+    def obtener_precios_lista(self):
+        elementos = self.driver.find_elements(*self.precios_productos)
+        # Le quitamos el $ a cada precio para que quede el nro solo y lo convierto a float
+        return [float(el.text.replace("$", "")) for el in elementos]
